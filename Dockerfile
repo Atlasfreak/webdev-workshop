@@ -58,4 +58,4 @@ EXPOSE 8000
 ENTRYPOINT [ "/app/entrypoint.sh" ]
 
 # Start the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "hochzeit.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "blog.wsgi:application"]
