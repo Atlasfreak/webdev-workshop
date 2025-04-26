@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block title %}
+    OFahrt Blog
+{% endblock title %}
+{% block brand %}
+    OFahrt Blog
+{% endblock brand %}
+{% block content %}
+    <h1>Beitrag bearbeiten</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Speichern</button>
+    </form>
+{% endblock content %}

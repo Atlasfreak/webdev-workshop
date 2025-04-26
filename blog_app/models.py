@@ -11,7 +11,7 @@ class Post(models.Model):
         USER_MODEL, verbose_name="Autor", on_delete=models.CASCADE
     )
     creation_date = models.DateTimeField("Erstellungsdatum", auto_now_add=True)
-    edit_date = models.DateTimeField("Bearbeitungsdatum", auto_now=False)
+    edit_date = models.DateTimeField("Bearbeitungsdatum", auto_now=True)
     text = models.CharField("Text", max_length=1024)
     title = models.CharField("Titel", max_length=255)
 
@@ -24,7 +24,9 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, verbose_name="Post", on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post, verbose_name="Post", on_delete=models.CASCADE, related_name="comments"
+    )
     author = models.ForeignKey(
         USER_MODEL, verbose_name="Autor", on_delete=models.CASCADE
     )

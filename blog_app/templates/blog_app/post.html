@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    OFahrt Blog
+{% endblock title %}
+{% block brand %}
+    OFahrt Blog
+{% endblock brand %}
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>
+        {% if is_creator %}
+            <a href="{% url "blog_app:edit_post" post.id %}">Bearbeiten</a>
+        {% endif %}
+        <ul>
+            <li>Autor: {{ post.author }}</li>
+            <li>Erstellt am: {{ post.creation_date|date:"d.m.Y H:i" }}</li>
+            <li>Aktualisiert am: {{ post.edit_date|date:"d.m.Y H:i" }}</li>
+        </ul>
+    </p>
+    <p>{{ post.text|linebreaks }}</p>
+    <hr>
+    {% if comment_form %}
+        <div class="mb-3">{% include "blog_app/include/comment_creation.html" with form=comment_form %}</div>
+        <hr>
+    {% endif %}
+    <h2>Kommentare</h2>
+    <ul>
+        {% for comment in post.comments.all %}
+            <li>
+                <strong>{{ comment.author.username }}</strong> schreibt:
+                {{ comment.text }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

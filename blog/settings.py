@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "homepage",
     "blog_app",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -110,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "de"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "CET"
 
 USE_I18N = True
 
